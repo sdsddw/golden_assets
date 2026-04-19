@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: #f0f2f5;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        text-align: center;
+        position: relative;
+    }
+    
+    .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #2ecc71;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .text-message {
+        font-size: 24px;
+        color: #2ecc71;
+        margin-top: 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    
+    .checkmark {
+        font-size: 100px;
+        color: #2ecc71;
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <div class="text-message"></div>
+        <div class="checkmark">&#10004;</div>
+    </div>
+    <script>
+        const textMessage = document.querySelector('.text-message');
+        const spinner = document.querySelector('.spinner');
+        const checkmark = document.querySelector('.checkmark');
+
+        let step = 1;
+
+        function fadeOut(element, callback) {
+            element.style.opacity = '0';
+            setTimeout(() => {
+                element.style.display = 'none';
+                callback();
+            }, 500);
+        }
+
+        function fadeIn(element, text, callback) {
+            element.style.display = 'block';
+            element.textContent = text;
+            element.style.opacity = '1';
+            setTimeout(() => {
+                callback();
+            }, 500);
+        }
+
+        function showCheckmark() {
+            fadeOut(textMessage, () => {
+                checkmark.style.display = 'block';
+                checkmark.style.opacity = '1';
+                spinner.style.display = 'none';
+                setTimeout(() => {
+                    window.close();
+                }, 1500);
+            });
+        }
+
+        setTimeout(() => {
+            fadeIn(textMessage, "Verifying...", () => {
+                step = 2;
+            });
+        }, 0);
+
+        setTimeout(() => {
+            fadeOut(textMessage, () => {
+                //
+                fadeIn(textMessage, "Verifying...", () => {
+                    step = 3;
+                });
+            });
+        }, 1000);
+
+        setTimeout(() => {
+            fadeOut(textMessage, () => {
+                fadeIn(textMessage, "Validating...", () => {
+                    step = 4;
+                });
+            });
+        }, 2000);
+
+        setTimeout(() => {
+            fadeOut(textMessage, showCheckmark);
+
+        }, 3000);
+    </script>
+</body>
+
+</html>

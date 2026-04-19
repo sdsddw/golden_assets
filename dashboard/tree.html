@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Tree</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="relative">
+        <div class="flex flex-col items-center">
+            <div class="bg-purple-500 text-white p-4 rounded-full shadow-lg">A</div>
+            <div class="mt-8">
+                <div class="bg-purple-400 text-white p-4 rounded-full shadow-lg">B</div>
+            </div>
+            <div class="flex mt-8 space-x-8">
+                <div class="bg-purple-300 text-white p-4 rounded-full shadow-lg">C</div>
+                <div class="bg-purple-300 text-white p-4 rounded-full shadow-lg">D</div>
+            </div>
+            <div class="mt-8">
+                <div class="bg-purple-200 text-white p-4 rounded-full shadow-lg">E</div>
+            </div>
+        </div>
+
+        <!-- Connecting lines -->
+        <svg class="absolute inset-0" width="100%" height="100%">
+            <line x1="50%" y1="10%" x2="50%" y2="30%" stroke="gray" stroke-width="2" />
+            <line x1="50%" y1="35%" x2="30%" y2="50%" stroke="gray" stroke-width="2" />
+            <line x1="50%" y1="35%" x2="70%" y2="50%" stroke="gray" stroke-width="2" />
+            <line x1="30%" y1="55%" x2="50%" y2="70%" stroke="gray" stroke-width="2" />
+        </svg>
+    </div>
+</body>
+
+</html>

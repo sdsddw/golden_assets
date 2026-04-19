@@ -1,0 +1,304 @@
+[2025-01-13 07:06:07][INFO] New investment request received
+[2025-01-13 07:06:07][INFO] Request details - Type: basic, Amount: 200, Customer: 4927581, Account: balance
+[2025-01-13 07:06:07][INFO] Validating investment amount: 200 for type: basic
+[2025-01-13 07:06:07][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 200
+[2025-01-13 07:06:07][SUCCESS] Amount validation passed
+[2025-01-13 07:06:07][INFO] Investment validation passed for Type: basic, Amount: 200
+[2025-01-13 07:06:07][ERROR] Balance check failed - Customer not found.
+[2025-01-13 07:06:07][INFO] Final response: {"success":false,"message":"Insufficient fund. Details: Customer not found.","data":[]}
+[2025-01-13 07:09:34][INFO] New investment request received
+[2025-01-13 07:09:34][INFO] Request details - Type: basic, Amount: 600, Customer: 4927581, Account: balance
+[2025-01-13 07:09:34][INFO] Validating investment amount: 600 for type: basic
+[2025-01-13 07:09:34][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 600
+[2025-01-13 07:09:34][SUCCESS] Amount validation passed
+[2025-01-13 07:09:34][INFO] Investment validation passed for Type: basic, Amount: 600
+[2025-01-13 07:09:34][ERROR] Balance check failed - Customer may not be found.
+[2025-01-13 07:09:34][INFO] Final response: {"success":false,"message":"Insufficient fund. Details: Customer may not be found.","data":[]}
+[2025-01-13 07:19:37][INFO] New investment request received
+[2025-01-13 07:19:37][INFO] Request details - Type: basic, Amount: 67, Customer: 4927581, Account: balance
+[2025-01-13 07:19:37][INFO] Validating investment amount: 67 for type: basic
+[2025-01-13 07:19:37][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 67
+[2025-01-13 07:19:37][ERROR] Amount outside allowed range
+[2025-01-13 07:19:37][ERROR] Investment amount validation failed for type 'basic' with amount 67
+[2025-01-13 07:19:37][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 07:19:45][INFO] New investment request received
+[2025-01-13 07:19:45][INFO] Request details - Type: basic, Amount: 100, Customer: 4927581, Account: balance
+[2025-01-13 07:19:45][INFO] Validating investment amount: 100 for type: basic
+[2025-01-13 07:19:45][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 100
+[2025-01-13 07:19:45][SUCCESS] Amount validation passed
+[2025-01-13 07:19:45][INFO] Investment validation passed for Type: basic, Amount: 100
+[2025-01-13 07:19:45][ERROR] Balance check failed - Customer may not be found.
+[2025-01-13 07:19:45][INFO] Final response: {"success":false,"message":"Insufficient fund. Details: Customer may not be found.","data":[]}
+[2025-01-13 07:20:40][INFO] New investment request received
+[2025-01-13 07:20:40][INFO] Request details - Type: basic, Amount: 600, Customer: 4927581, Account: interest
+[2025-01-13 07:20:40][INFO] Validating investment amount: 600 for type: basic
+[2025-01-13 07:20:40][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 600
+[2025-01-13 07:20:40][SUCCESS] Amount validation passed
+[2025-01-13 07:20:40][INFO] Investment validation passed for Type: basic, Amount: 600
+[2025-01-13 07:20:40][ERROR] Balance check failed - Customer may not be found.
+[2025-01-13 07:20:40][INFO] Final response: {"success":false,"message":"Insufficient fund. Details: Customer may not be found.","data":[]}
+[2025-01-13 08:51:16][INFO] New investment request received
+[2025-01-13 08:51:16][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 100
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 08:51:16][INFO] Session customer_id: 04927581
+[2025-01-13 08:51:16][INFO] Posted customer_id: 4927581
+[2025-01-13 08:51:16][INFO] Validating investment amount: 100 for type: basic
+[2025-01-13 08:51:16][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 100
+[2025-01-13 08:51:16][SUCCESS] Amount validation passed
+[2025-01-13 08:51:16][INFO] Investment validation passed for Type: basic, Amount: 100
+[2025-01-13 08:51:16][INFO] Checking balance for customer: 4927581, account: balance, amount: 100
+[2025-01-13 08:51:16][INFO] Executing query: SELECT Balance, Interest_Balance, total_invest FROM customer WHERE Customer_ID = '4927581' FOR UPDATE
+[2025-01-13 08:51:16][ERROR] No customer found with ID: 4927581
+[2025-01-13 08:51:16][ERROR] Transaction failed: Customer not found.
+[2025-01-13 08:51:16][ERROR] Balance check failed - Customer not found.
+[2025-01-13 08:51:16][INFO] Final response: {"success":false,"message":"Insufficient fund. Details: Customer not found.","data":[]}
+[2025-01-13 09:21:35][INFO] New investment request received
+[2025-01-13 09:21:35][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 500
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 09:21:35][INFO] Session customer_id: 04927581
+[2025-01-13 09:21:35][INFO] Posted customer_id: 4927581
+[2025-01-13 09:21:35][ERROR] Investment amount validation failed for type 'basic' with amount 500
+[2025-01-13 09:21:35][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 12:39:10][INFO] New investment request received
+[2025-01-13 12:39:10][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 100
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:39:10][INFO] Session customer_id: 04927581
+[2025-01-13 12:39:10][INFO] Posted customer_id: 4927581
+[2025-01-13 12:39:10][ERROR] Investment amount validation failed for type 'basic' with amount 100
+[2025-01-13 12:39:10][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 12:39:22][INFO] New investment request received
+[2025-01-13 12:39:22][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:39:22][INFO] Session customer_id: 04927581
+[2025-01-13 12:39:22][INFO] Posted customer_id: 4927581
+[2025-01-13 12:39:22][ERROR] Investment amount validation failed for type 'basic' with amount 200
+[2025-01-13 12:39:22][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 12:39:33][INFO] New investment request received
+[2025-01-13 12:39:33][INFO] Raw POST data: Array
+(
+    [investment_type] => standard
+    [investment_amount] => 2000
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:39:33][INFO] Session customer_id: 04927581
+[2025-01-13 12:39:33][INFO] Posted customer_id: 4927581
+[2025-01-13 12:39:33][ERROR] Investment amount validation failed for type 'standard' with amount 2000
+[2025-01-13 12:39:33][INFO] Final response: {"success":false,"message":"Investment amount for 'standard' does not meet the requirements.","data":[]}
+[2025-01-13 12:47:22][INFO] New investment request received
+[2025-01-13 12:47:22][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:47:22][INFO] Session customer_id: 04927581
+[2025-01-13 12:47:22][INFO] Posted customer_id: 4927581
+[2025-01-13 12:47:22][ERROR] Investment amount validation failed for type 'basic' with amount 200
+[2025-01-13 12:47:22][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 12:47:34][INFO] New investment request received
+[2025-01-13 12:47:34][INFO] Raw POST data: Array
+(
+    [investment_type] => standard
+    [investment_amount] => 2000
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:47:34][INFO] Session customer_id: 04927581
+[2025-01-13 12:47:34][INFO] Posted customer_id: 4927581
+[2025-01-13 12:47:34][ERROR] Investment amount validation failed for type 'standard' with amount 2000
+[2025-01-13 12:47:34][INFO] Final response: {"success":false,"message":"Investment amount for 'standard' does not meet the requirements.","data":[]}
+[2025-01-13 12:48:12][INFO] New investment request received
+[2025-01-13 12:48:12][INFO] Raw POST data: Array
+(
+    [investment_type] => standard
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:48:12][INFO] Session customer_id: 04927581
+[2025-01-13 12:48:12][INFO] Posted customer_id: 4927581
+[2025-01-13 12:48:12][ERROR] Investment amount validation failed for type 'standard' with amount 200
+[2025-01-13 12:48:12][INFO] Final response: {"success":false,"message":"Investment amount for 'standard' does not meet the requirements.","data":[]}
+[2025-01-13 12:50:38][INFO] New investment request received
+[2025-01-13 12:50:38][INFO] Raw POST data: Array
+(
+    [investment_type] => standard
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:50:38][INFO] Session customer_id: 04927581
+[2025-01-13 12:50:38][INFO] Posted customer_id: 4927581
+[2025-01-13 12:50:38][ERROR] Investment amount validation failed for type 'standard' with amount 200
+[2025-01-13 12:50:38][INFO] Final response: {"success":false,"message":"Investment amount for 'standard' does not meet the requirements.","data":[]}
+[2025-01-13 12:57:16][INFO] New investment request received
+[2025-01-13 12:57:16][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 100
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 12:57:16][INFO] Session customer_id: 04927581
+[2025-01-13 12:57:16][INFO] Posted customer_id: 4927581
+[2025-01-13 12:57:16][INFO] Validating investment amount: 100 for type: basic
+[2025-01-13 12:57:16][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 100
+[2025-01-13 12:57:16][SUCCESS] Amount validation passed
+[2025-01-13 12:57:16][INFO] Checking balance for customer: 4927581, account: balance
+[2025-01-13 12:57:16][ERROR] No customer found with ID: 4927581
+[2025-01-13 12:57:16][ERROR] Transaction failed: Customer not found.
+[2025-01-13 12:57:16][INFO] Final response: {"success":false,"message":"Customer not found.","data":[]}
+[2025-01-13 13:05:39][INFO] New investment request received
+[2025-01-13 13:05:39][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 13:05:39][INFO] Session customer_id: 04927581
+[2025-01-13 13:05:39][INFO] Posted customer_id: 4927581
+[2025-01-13 13:05:39][INFO] Validating investment amount: 200 for type: basic
+[2025-01-13 13:05:39][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 200
+[2025-01-13 13:05:39][SUCCESS] Amount validation passed
+[2025-01-13 13:05:39][INFO] Checking balance for customer: 4927581, account: balance
+[2025-01-13 13:05:39][ERROR] No customer found with ID: 4927581
+[2025-01-13 13:05:39][ERROR] Transaction failed: Customer not found.
+[2025-01-13 13:05:39][INFO] Final response: {"success":false,"message":"Customer not found.","data":[]}
+[2025-01-13 13:07:20][INFO] New investment request received
+[2025-01-13 13:07:20][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 13:07:20][INFO] Session customer_id: 04927581
+[2025-01-13 13:07:20][INFO] Posted customer_id: 4927581
+[2025-01-13 13:07:20][ERROR] Investment amount validation failed for type 'basic' with amount 200
+[2025-01-13 13:07:20][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 13:09:37][INFO] New investment request received
+[2025-01-13 13:09:37][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 13:09:37][INFO] Session customer_id: 04927581
+[2025-01-13 13:09:37][INFO] Posted customer_id: 4927581
+[2025-01-13 13:09:37][INFO] Validating investment amount: 200 for type: basic
+[2025-01-13 13:09:37][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 200
+[2025-01-13 13:09:37][SUCCESS] Amount validation passed
+[2025-01-13 13:09:37][INFO] Checking balance for customer: 4927581, account: balance
+[2025-01-13 13:09:37][ERROR] No customer found with ID: 4927581
+[2025-01-13 13:09:37][ERROR] Transaction failed: Customer not found.
+[2025-01-13 13:09:37][INFO] Final response: {"success":false,"message":"Customer not found.","data":[]}
+[2025-01-13 13:12:11][INFO] New investment request received
+[2025-01-13 13:12:11][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 13:12:11][INFO] Session customer_id: 04927581
+[2025-01-13 13:12:11][INFO] Posted customer_id: 04927581
+[2025-01-13 13:12:11][INFO] Validating investment amount: 200 for type: basic
+[2025-01-13 13:12:11][INFO] Investment limits - Min: 100.00, Max: 1000.00, Requested: 200
+[2025-01-13 13:12:11][SUCCESS] Amount validation passed
+[2025-01-13 13:12:11][INFO] Checking balance for customer: 04927581, account: balance
+[2025-01-13 13:12:11][INFO] Deducting balance and investing for customer: 04927581, account: balance, amount: 200
+[2025-01-13 13:12:11][INFO] Final response: {"success":true,"message":"Investment of 200 created successfully. Daily ROI: ","data":[]}
+[2025-01-13 13:13:40][INFO] New investment request received
+[2025-01-13 13:13:40][INFO] Raw POST data: Array
+(
+    [investment_type] => standard
+    [investment_amount] => 2000
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 13:13:40][INFO] Session customer_id: 04927581
+[2025-01-13 13:13:40][INFO] Posted customer_id: 04927581
+[2025-01-13 13:13:40][INFO] Validating investment amount: 2000 for type: standard
+[2025-01-13 13:13:40][INFO] Investment limits - Min: 1000.00, Max: 50000.00, Requested: 2000
+[2025-01-13 13:13:40][SUCCESS] Amount validation passed
+[2025-01-13 13:13:40][INFO] Checking balance for customer: 04927581, account: balance
+[2025-01-13 13:13:40][INFO] Deducting balance and investing for customer: 04927581, account: balance, amount: 2000
+[2025-01-13 13:13:40][INFO] Final response: {"success":true,"message":"Investment of 2000 created successfully. Daily ROI: ","data":[]}
+[2025-01-13 14:05:28][INFO] New investment request received
+[2025-01-13 14:05:28][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 200
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 14:05:28][INFO] Session customer_id: 04927581
+[2025-01-13 14:05:28][INFO] Posted customer_id: 4927581
+[2025-01-13 14:05:28][ERROR] Investment amount validation failed for type 'basic' with amount 200
+[2025-01-13 14:05:28][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 14:07:30][INFO] New investment request received
+[2025-01-13 14:07:30][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 1
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 14:07:30][INFO] Session customer_id: 04927581
+[2025-01-13 14:07:30][INFO] Posted customer_id: 4927581
+[2025-01-13 14:07:30][ERROR] Investment amount validation failed for type 'basic' with amount 1
+[2025-01-13 14:07:30][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}
+[2025-01-13 14:07:35][INFO] New investment request received
+[2025-01-13 14:07:35][INFO] Raw POST data: Array
+(
+    [investment_type] => basic
+    [investment_amount] => 100
+    [customer_id] => 4927581
+    [selected_account] => balance
+)
+
+[2025-01-13 14:07:35][INFO] Session customer_id: 04927581
+[2025-01-13 14:07:35][INFO] Posted customer_id: 4927581
+[2025-01-13 14:07:35][ERROR] Investment amount validation failed for type 'basic' with amount 100
+[2025-01-13 14:07:35][INFO] Final response: {"success":false,"message":"Investment amount for 'basic' does not meet the requirements.","data":[]}

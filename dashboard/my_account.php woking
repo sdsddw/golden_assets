@@ -1,0 +1,93 @@
+<?php
+include('../config.php');
+
+if (!isset($_SESSION['customer_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// Fetch current user details
+$user_id = $_SESSION['customer_id'];
+$query = "SELECT Customer_Name, Email, Phone_Number FROM customer WHERE Customer_ID = ?";
+$stmt = mysqli_prepare($connect, $query);
+mysqli_stmt_bind_param($stmt, "s", $user_id);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $customerName, $email, $phoneNumber);
+mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
+
+// Update user details if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $newUsername = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $newEmail = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $newPhoneNumber = filter_input(INPUT_POST, 'phone_number', FILTER_SANITIZE_STRING);
+    $newPassword = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+    // Validate email
+    if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format.');</script>";
+    } elseif ($newPassword !== $confirmPassword) {
+        echo "<script>alert('Passwords do not match.');</script>";
+    } else {
+        // Hash the new password if provided
+        if (!empty($newPassword)) {
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $updateQuery = "UPDATE customer SET Customer_Name = ?, Email = ?, Phone_Number = ?, Password = ? WHERE Customer_ID = ?";
+            $stmt = mysqli_prepare($connect, $updateQuery);
+            mysqli_stmt_bind_param($stmt, "sssss", $newUsername, $newEmail, $newPhoneNumber, $hashedPassword, $user_id);
+        } else {
+            // Update without changing the password
+            $updateQuery = "UPDATE customer SET Customer_Name = ?, Email = ?, Phone_Number = ? WHERE Customer_ID = ?";
+            $stmt = mysqli_prepare($connect, $updateQuery);
+            mysqli_stmt_bind_param($stmt, "ssss", $newUsername, $newEmail, $newPhoneNumber, $user_id);
+        }
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('Details updated successfully.');</script>";
+            header('Location: my_account.php');
+        } else {
+            echo "<script>alert('Error updating details.');</script>";
+        }
+        mysqli_stmt_close($stmt);
+    }
+}
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Edit Account</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h2 class="text-2xl mb-4">Edit Account Details</h2>
+        <form method="POST" action="">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($customerName); ?>" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div class="mb-4">
+                <label for="phone_number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input type="text" name="phone_number" id="phone_number" value="<?php echo htmlspecialchars($phoneNumber); ?>" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
+                <input type="password" name="password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div class="mb-4">
+                <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Update Details</button>
+        </form>
+    </div>
+</body>
+</html>
